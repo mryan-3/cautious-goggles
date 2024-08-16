@@ -5,7 +5,7 @@ import NavItems from './nav-items'
 
 export const Navbar = () => {
   return (
-    <div className='flex justify-between items-center text-primary w-full'>
+    <div className='flex justify-between items-center text-primary w-full bg-transparent'>
       <nav className='fixed left-0 right-0 top-0 hidden md:flex w-full bg-transparent items-center justify-between p-2 px-8 text-primary'>
         <Link href='/' className='flex justify-between items-center gap-1'>
           <Image
