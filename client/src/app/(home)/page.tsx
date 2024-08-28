@@ -7,7 +7,8 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Check } from 'lucide-react'
+import { Building2, Check, PhoneCall, Quote } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -16,13 +17,16 @@ export default function Home() {
       <About2 />
       <ChooseUs />
       <Services />
+      <Testimonials />
+      <Footer />
     </div>
   )
 }
 
 function Hero() {
   return (
-    <div className='min-h-screen bg-[url(/hero.webp)] bg-cover bg-center bg-no-repeat pt-8 md:pt-36 lg:pt-52'>
+    <div className='relative min-h-screen md:h-full bg-[url(/hero.webp)] bg-cover bg-center bg-no-repeat pt-8 md:pt-36 lg:pt-52'>
+      <div className='absolute inset-0 bg-black opacity-25' />
       <section className='relative mx-auto flex flex-col md:ml-5 lg:ml-36 px-6'>
         <div className='flex flex-col w-full lg:w-[80%] md:-ml-2 lg:-ml-24 xl:-mt-24 2xl:mt-0 gap-8 pt-4 text-wrap'>
           <h1 className='z-20 text-primary text-start text-5xl md:text-6xl font-bold leading-none '>
@@ -78,7 +82,7 @@ function About() {
 
 function Services() {
   return (
-    <div className='h-scren bg-background py-8 px-6 md:px-16 flex flex-col gap-5 items-center w-full'>
+    <div className='h-full border-b border-[#2981a0] bg-background py-8 px-6 md:px-16 flex flex-col gap-5 items-center w-full'>
       <div className='w-full flex flex-col gap-4'>
         <h3 className='text-4xl text-center  uppercase font-extrabold w-full text-[#2981a0] tracking-wider'>
           Our Services
@@ -88,7 +92,11 @@ function Services() {
         </h3>
       </div>
       <div className='w-full flex -red-50'>
-        <Accordion type='single' collapsible className='w-full md:w-3/4 mx-auto '>
+        <Accordion
+          type='single'
+          collapsible
+          className='w-full md:w-3/4 mx-auto '
+        >
           <AccordionItem value='item-1'>
             <AccordionTrigger className='   '>
               Residential Architecture
@@ -117,9 +125,7 @@ function Services() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value='item-5'>
-            <AccordionTrigger className=''>
-              Sustainable Design
-            </AccordionTrigger>
+            <AccordionTrigger className=''>Sustainable Design</AccordionTrigger>
             <AccordionContent className=' font-semibold tracking-wide text-[#132b39]'>
               Sustainable design is a field of architecture that focuses on
               creating spaces that are efficient and efficient.
@@ -142,7 +148,7 @@ function Services() {
 
 function About2() {
   return (
-    <div className='h-full py-8 md:py-16 px-6 md:px-16 flex flex-col gap-5  items-center w-full'>
+    <div className='h-full border-b border-[#2981a0] py-8 md:py-16 px-6 md:px-16 flex flex-col gap-5  items-center w-full'>
       <div className='pb-4 md:py-16'>
         <h3 className='text-3xl md:text-4xl capitalize font-extrabold w-full tracking-wide'>
           Creating World-class buildings that are attractive, beautiful, and
@@ -230,7 +236,7 @@ function About2() {
 
 function ChooseUs() {
   return (
-    <div className='h-full py-8 md:py-16 px-6 md:px-16 flex flex-col gap-5  items-center w-full'>
+    <div className='h-full border-b border-[#2981a0] py-8 md:py-16 px-6 md:px-16 flex flex-col gap-5  w-full'>
       <div className='flex flex-col gap-4'>
         <h3 className='text-3xl md:text-4xl capitalize font-extrabold w-full tracking-wide'>
           Why Choose Buildr
@@ -283,6 +289,131 @@ function ChooseUs() {
           </Card>
         </div>
       </div>
+    </div>
+  )
+}
+
+function Testimonials() {
+  return (
+    <div className='h-full border-b border-[#2981a0] py-8 md:py-16 px-6 md:px-16 flex flex-col gap-5   w-full'>
+      <div className='flex flex-col space-y-4'>
+        <h3 className='text-3xl md:text-4xl capitalize font-extrabold w-full tracking-wide'>
+          Client's Voices of satisfaction
+        </h3>
+        <p className='font-medium text-base  '>
+          Listen to delighted clients who have experienced Buildr's exceptional
+          craftsmanship and professionalism services for their construction
+          needs.
+        </p>
+      </div>
+      <div className='flex flex-col gap-6  md:flex-row '>
+        <div className='flex flex-col gap-2 justify-center mt-1 items-cener w-full md:w-1/2'>
+          <Card className='bg-[#2981a0] rounded-sm border-0'>
+            <CardHeader>
+              <CardTitle className='flex flex-col items-start gap-4'>
+                <Quote className='text-black p-1' />
+                <p>
+                  Their commitment to quality and attention to detail is
+                  unmatched.
+                </p>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                I have had the pleasure of collaborating with Buildr on multiple
+                projects, and I must say their commitment to quality and
+                attention to detail is unmatched. Their team's expertise in
+                construction has truly elevated the success of my developments.
+              </p>
+            </CardContent>
+          </Card>
+
+          <div className='flex items-center gap-6 '>
+            <Image
+              src='/cat.webp'
+              alt='test'
+              width={20}
+              height={200}
+              className='w-14 h-14 rounded-full'
+            />
+
+            <div className='flex flex-col'>
+              <h4 className='font-bold'>Madden Morris</h4>
+              <p className='text-sm'>Property Developer</p>
+            </div>
+          </div>
+        </div>
+        <div className='flex flex-col gap-2 justify-center mt-1 items-cener w-full md:w-1/2'>
+          <Card className='bg-[#2981a0] rounded-sm border-0'>
+            <CardHeader>
+              <CardTitle className='flex flex-col items-start gap-4'>
+                <Quote className='text-black p-1' />
+                <p>
+                  Their commitment to quality and attention to detail is
+                  unmatched.
+                </p>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                I have had the pleasure of collaborating with Buildr on multiple
+                projects, and I must say their commitment to quality and
+                attention to detail is unmatched. Their team's expertise in
+                construction has truly elevated the success of my developments.
+              </p>
+            </CardContent>
+          </Card>
+
+          <div className='flex items-center gap-6 '>
+            <Image
+              src='/cat.webp'
+              alt='test'
+              width={20}
+              height={200}
+              className='w-14 h-14 rounded-full'
+            />
+            <div className='flex flex-col'>
+              <h4 className='font-bold'>Madden Morris</h4>
+              <p className='text-sm'>Property Developer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Footer() {
+  return (
+    <div className='h-full border-b  border-[#2981a0] py-6 md:py-10 px-6 md:px-16 flex flex-col gap-5  items-center w-full'>
+      <div className='flex flex-col px-1 w-full '>
+        <Link href='/' className='flex items-center justify-center gap-1'>
+          <Image
+            src='/logo.png'
+            width={40}
+            height={40}
+            alt='logo'
+            className='p-2'
+          />
+          <h1 className='text-xl lg:text-3xl hover:text-hover font-bold tracking-wider'>
+            Buildr{' '}
+          </h1>
+        </Link>
+        <p className='font-medium text-base text-center'>
+          Building Your Vision With Precision
+        </p>
+      </div>
+      <div className='flex  items-center  justify-center gap-2 md:gap-4 w-full'>
+        <div className='flex w-full gap-3 items-center justify-end'>
+          <Building2 />
+          <p className='text-sm md:text-base'>Tel Avis, Tel-Aviv</p>
+        </div>
+        <div className='flex w-full gap-3'>
+          <PhoneCall />
+          <p className='text-sm md:text-base'>+972 52 123 4567</p>
+        </div>
+      </div>
+      <p>2024 Buildr. All Rights Reserved</p>
     </div>
   )
 }
